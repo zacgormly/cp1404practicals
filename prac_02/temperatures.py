@@ -29,13 +29,13 @@ def main():
 
 
 def convert_fahrenheit_to_celsius(fahrenheit):
-    """Calculate Celsius value based on Fahrenheit input."""
+    """Calculate Celsius value based on Fahrenheit."""
     celsius = 5 / 9 * (fahrenheit - 32)
     return celsius
 
 
 def convert_celsius_to_fahrenheit(celsius):
-    """Calculate Fahrenheit value based on Celsius input."""
+    """Calculate Fahrenheit value based on Celsius."""
     fahrenheit = celsius * 9.0 / 5 + 32
     return fahrenheit
 
