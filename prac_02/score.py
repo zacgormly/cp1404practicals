@@ -10,6 +10,7 @@ MAXIMUM_SCORE = 100
 
 
 def main():
+    """Score and performance program."""
     score = float(input("Enter score: "))
     result = determine_performance(score)
     print(result)
@@ -21,6 +22,7 @@ def main():
 
 
 def determine_performance(score):
+    """Determine performance based on score."""
     if score < 0 or score > 100:
         return "Invalid score"
     if score >= 90:
