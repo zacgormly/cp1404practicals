@@ -5,8 +5,8 @@ Program to determine score status
 
 from random import randint
 
-RANDOM_LOW_LIMIT = 0
-RANDOM_HIGH_LIMIT = 100
+MINIMUM_SCORE = 0
+MAXIMUM_SCORE = 100
 
 
 def main():
