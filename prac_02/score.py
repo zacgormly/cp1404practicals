@@ -14,7 +14,7 @@ def main():
     result = determine_performance(score)
     print(result)
 
-    random_score = randint(RANDOM_LOW_LIMIT, RANDOM_HIGH_LIMIT)
+    random_score = randint(MINIMUM_SCORE, MAXIMUM_SCORE)
     random_result = determine_performance(random_score)
     print(f"Random score is: {random_score}.")
     print(random_result)
