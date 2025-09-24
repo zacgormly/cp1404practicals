@@ -4,11 +4,13 @@ from random import randint
 
 
 def main():
+    """Write specified number of scores with performance to results file."""
     number_of_scores = int(input("Number of scores: "))
     out_file = open("results.txt", "w")
     for i in range(number_of_scores):
         random_score = randint(0, 100)
-        print(random_score, file=out_file)
+        performance = determine_performance(random_score)
+        print(f"{random_score} is {performance}", file=out_file)
     out_file.close()
 
 

@@ -1,3 +1,10 @@
-53
-20
-37
+20 is Bad
+13 is Bad
+69 is Passable
+19 is Bad
+72 is Passable
+25 is Bad
+7 is Bad
+71 is Passable
+23 is Bad
+96 is Excellent
