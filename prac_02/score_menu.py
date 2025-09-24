@@ -1,4 +1,4 @@
-"""Main Menu"""
+"""Main Menu for Determining Score Grade"""
 
 MENU = ("(G)et valid score\n"
         "(P)rint result\n"
