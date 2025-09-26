@@ -10,6 +10,7 @@ MAX_PERCENTAGE_DEAD = 25
 
 
 def main():
+    """Determine gopher population over 10 years."""
     print("Welcome to the Gopher Population Simulator!")
     initial_population = int(input("Starting population: "))
     original_population = initial_population
@@ -27,21 +28,25 @@ def main():
 
 
 def determine_proportion_born():
+    """Determine proportion born based on random chance of being born."""
     proportion_born = (randint(MIN_PERCENTAGE_BORN, MAX_PERCENTAGE_BORN) / 100)
     return proportion_born
 
 
 def calculate_number_born(proportion_born, original_population):
+    """Calculate number born in a year."""
     number_born = proportion_born * original_population
     return number_born
 
 
 def determine_proportion_dead():
+    """Determine proportion that died based on random chance of dying."""
     proportion_dead = (randint(MIN_PERCENTAGE_DEAD, MAX_PERCENTAGE_DEAD) / 100)
     return proportion_dead
 
 
 def calculate_number_dead(proportion_dead, original_population):
+    """Calculate number dead in a year."""
     number_dead = proportion_dead * original_population
     return number_dead
 
