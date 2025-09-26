@@ -21,8 +21,8 @@ def main():
         number_dead = calculate_number_dead(proportion_dead, original_population)
         new_population = original_population + number_born - number_dead
 
-        print(f"{number_born} gophers were born. {number_dead} died.")
-        print(f"Population: {new_population}")
+        print(f"{int(number_born)} gophers were born. {int(number_dead)} died.")
+        print(f"Population: {int(new_population)}")
         original_population = new_population
 
 
