@@ -24,6 +24,7 @@ def main():
 
         print(f"{int(number_born)} gophers were born. {int(number_dead)} died.")
         print(f"Population: {int(new_population)}")
+
         original_population = new_population
 
 
