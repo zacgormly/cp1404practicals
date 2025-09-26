@@ -16,8 +16,9 @@ def main():
             score = get_valid_score()
         elif choice == "P":
             performance = determine_performance(score)
+            print(f"This score is considered: {performance}")
         elif choice == "S":
-            pass
+            print_asterisks(score)
         else:
             print("Invalid choice")
         print(MENU)
@@ -34,9 +35,9 @@ def get_valid_score():
     return score
 
 
-def print_line(length):
-    """Print line of hyphens."""
-    print('-' * length)
+def print_asterisks(score):
+    """Print a number of asterisks the same as the score value."""
+    print('*' * score)
 
 
 def determine_performance(score):
