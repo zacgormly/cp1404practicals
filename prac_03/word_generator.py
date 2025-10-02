@@ -10,18 +10,24 @@ import string
 
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
+WILDCARDS = "%#*"
+ALPHABET = string.ascii_lowercase
 
 
-word_format = input("Word format (e.g. cvcv): ").lower()
+combined_choices = WILDCARDS + ALPHABET
+word_length = int(input("Word length: "))
+
 word = ""
-for kind in word_format:
-    if kind == "%":
-        word += random.choice(CONSONANTS)
-    elif kind == "#":
-        word += random.choice(VOWELS)
-    elif kind == "*":
-        word += random.choice(string.ascii_lowercase)
-    else:
-        word += kind
+for i in range (word_length):
+    word_format = random.choice(combined_choices)
+    for kind in word_format:
+        if kind == "%":
+            word += random.choice(CONSONANTS)
+        elif kind == "#":
+            word += random.choice(VOWELS)
+        elif kind == "*":
+            word += random.choice(string.ascii_lowercase)
+        else:
+            word += kind
 
 print(word)
