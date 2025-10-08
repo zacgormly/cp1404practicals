@@ -27,9 +27,9 @@ def load_subject_records(filename=FILENAME):
 
 
 def print_subject_details(subject_records):
-    """Print subject details including subject, lecturer and number of students."""
-    for i in range(len(subject_records)):
-        print(f"{subject_records[i][0]} is taught by {subject_records[i][1]} and has {subject_records[i][2]} students")
+    """Print subject details including subject, lecturer and number of students with formatting."""
+    for subject_record in subject_records:
+        print(f"{subject_record[0]} is taught by {subject_record[1]:12} and has {subject_record[2]:3} students")
 
 
 main()
