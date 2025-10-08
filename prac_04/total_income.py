@@ -11,19 +11,18 @@ def main():
     print()
 
     for month in range(1, number_of_months + 1):
-        income = float(input(f"Enter income for month {str(month)}: "))
+        income = float(input(f"Enter income for month {month}: "))
         incomes.append(income)
 
-    income_report = generate_report(incomes, number_of_months)
+    income_report = generate_report(incomes)
     print_report(income_report)
 
 
-def generate_report(incomes, number_of_months):
+def generate_report(incomes):
     """Generate report values and store in tuple."""
     report = []
     total = 0
-    for month in range(1, number_of_months + 1):
-        income = incomes[month - 1]
+    for month, income in enumerate(incomes, 1):
         total += income
         report.append((month, income, total))
     return report
