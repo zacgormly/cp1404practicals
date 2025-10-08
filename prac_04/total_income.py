@@ -28,6 +28,7 @@ def generate_report(incomes, number_of_months):
         report.append((month, income, total))
     return report
 
+
 def print_report(income_report):
     """Print report."""
     print("\nIncome Report\n-------------")
