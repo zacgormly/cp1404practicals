@@ -4,9 +4,8 @@ import random
 
 AMOUNT_OF_NUMBERS_FOR_EACH_PICK = 6
 LOW = 1
-HIGH = 10
+HIGH = 45
 
-# TODO: ascending order
 
 def main():
     number_of_picks = get_valid_number_of_picks()
@@ -15,7 +14,8 @@ def main():
         for j in range(AMOUNT_OF_NUMBERS_FOR_EACH_PICK):
             number = get_new_random_number(pick_numbers)
             pick_numbers.append(number)
-            print(f"{number:2}", end=' ')
+        ascending_numbers = order_pick_numbers(pick_numbers)
+        print_formatted_pick(ascending_numbers)
         print()
 
 
@@ -32,6 +32,16 @@ def get_valid_number_of_picks():
         print("Invalid number of picks.")
         number_of_picks = int(input("How many quick picks? "))
     return number_of_picks
+
+
+def print_formatted_pick(ascending_numbers):
+    for number in ascending_numbers:
+        print(f"{number:2}", end=' ')
+
+
+def order_pick_numbers(pick_numbers):
+    ascending_numbers = [number for number in sorted(pick_numbers)]
+    return ascending_numbers
 
 
 main()
