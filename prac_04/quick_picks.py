@@ -4,9 +4,8 @@ import random
 
 AMOUNT_OF_NUMBERS_FOR_EACH_PICK = 6
 LOW = 1
-HIGH = 45
+HIGH = 10
 
-# TODO: repeated numbers
 # TODO: ascending order
 
 def main():
@@ -15,6 +14,7 @@ def main():
         pick_numbers = []
         for j in range(AMOUNT_OF_NUMBERS_FOR_EACH_PICK):
             number = get_new_random_number(pick_numbers)
+            pick_numbers.append(number)
             print(f"{number:2}", end=' ')
         print()
 
