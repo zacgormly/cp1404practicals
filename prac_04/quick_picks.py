@@ -15,9 +15,8 @@ def main():
         for j in range(AMOUNT_OF_NUMBERS_PER_PICK):
             number = get_new_random_number(pick_numbers)
             pick_numbers.append(number)
-        ascending_numbers = order_pick_numbers(pick_numbers)
-        print_formatted_pick(ascending_numbers)
-        print()
+        pick_numbers.sort()
+        print_formatted_pick(pick_numbers)
 
 
 def get_new_random_number(pick_numbers):
@@ -37,16 +36,9 @@ def get_valid_number_of_picks():
     return number_of_picks
 
 
-def print_formatted_pick(ascending_numbers):
+def print_formatted_pick(pick_numbers):
     """Print pick numbers with neat format."""
-    for number in ascending_numbers:
-        print(f"{number:2}", end=' ')
-
-
-def order_pick_numbers(pick_numbers):
-    """Order pick numbers in ascending order."""
-    ascending_numbers = [number for number in sorted(pick_numbers)]
-    return ascending_numbers
+    print(" ".join(f"{number:2}" for number in pick_numbers))
 
 
 main()
