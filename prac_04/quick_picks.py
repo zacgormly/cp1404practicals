@@ -12,7 +12,7 @@ def main():
     number_of_picks = get_valid_number_of_picks()
     for i in range(number_of_picks):
         pick_numbers = []
-        for j in range(AMOUNT_OF_NUMBERS_FOR_EACH_PICK):
+        for j in range(AMOUNT_OF_NUMBERS_PER_PICK):
             number = get_new_random_number(pick_numbers)
             pick_numbers.append(number)
         ascending_numbers = order_pick_numbers(pick_numbers)
