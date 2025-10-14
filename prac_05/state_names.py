@@ -12,10 +12,10 @@ MAX_CODE_LENGTH = 3
 for code, name in CODE_TO_NAME.items():
     print(f"{code:3} is {name}")
 
-state_code = input("Enter short state: ").upper()
-while state_code != "":
-    if state_code in CODE_TO_NAME:
+is_invalid = False
+while not is_invalid:
+    try:
+        state_code = input("Enter short state: ").upper()
         print(state_code, "is", CODE_TO_NAME[state_code])
-    else:
+    except KeyError:
         print("Invalid short state")
-    state_code = input("Enter short state: ").upper()
