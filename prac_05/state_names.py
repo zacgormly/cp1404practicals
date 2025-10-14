@@ -11,7 +11,8 @@ CODE_TO_NAME = {
     "WA": "Western Australia",
     "ACT": "Australian Capital Territory",
     "VIC": "Victoria",
-    "TAS": "Tasmania", "SA": "South Australia"
+    "TAS": "Tasmania",
+    "SA": "South Australia",
 }
 MAX_STATE_CODE_LENGTH = 3
 
