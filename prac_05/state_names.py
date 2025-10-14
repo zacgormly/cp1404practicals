@@ -4,8 +4,15 @@ State names in a dictionary
 File needs reformatting
 """
 
-CODE_TO_NAME = {"QLD": "Queensland", "NSW": "New South Wales", "NT": "Northern Territory", "WA": "Western Australia",
-                "ACT": "Australian Capital Territory", "VIC": "Victoria", "TAS": "Tasmania", "SA": "South Australia"}
+CODE_TO_NAME = {
+    "QLD": "Queensland",
+    "NSW": "New South Wales",
+    "NT": "Northern Territory",
+    "WA": "Western Australia",
+    "ACT": "Australian Capital Territory",
+    "VIC": "Victoria",
+    "TAS": "Tasmania", "SA": "South Australia"
+}
 MAX_STATE_CODE_LENGTH = 3
 
 for state_code, state_name in CODE_TO_NAME.items():
