@@ -7,10 +7,10 @@ File needs reformatting
 # TODO: Reformat this file so the dictionary code follows PEP 8 convention
 CODE_TO_NAME = {"QLD": "Queensland", "NSW": "New South Wales", "NT": "Northern Territory", "WA": "Western Australia",
                 "ACT": "Australian Capital Territory", "VIC": "Victoria", "TAS": "Tasmania", "SA": "South Australia"}
-MAX_CODE_LENGTH = 3
+MAX_STATE_CODE_LENGTH = 3
 
-for code, name in CODE_TO_NAME.items():
-    print(f"{code:3} is {name}")
+for state_code, state_name in CODE_TO_NAME.items():
+    print(f"{state_code:3} is {state_name}")
 
 is_invalid = False
 while not is_invalid:
