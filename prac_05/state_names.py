@@ -1,7 +1,7 @@
 """
 CP1404/CP5632 Practical
 State names in a dictionary
-File needs reformatting
+File has been reformatted and inputs are no longer case-sensitive
 """
 
 CODE_TO_NAME = {
@@ -17,7 +17,7 @@ CODE_TO_NAME = {
 MAX_STATE_CODE_LENGTH = 3
 
 for state_code, state_name in CODE_TO_NAME.items():
-    print(f"{state_code:3} is {state_name}")
+    print(f"{state_code:{MAX_STATE_CODE_LENGTH}} is {state_name}")
 
 state_code = input("Enter short state: ").upper()
 while state_code != "":
