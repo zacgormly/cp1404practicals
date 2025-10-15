@@ -14,7 +14,7 @@ COLOUR_TO_HEX = {
     "AliceBlue": "f0f8ff",
 }
 
-# Change each colour string in new dict to lowercase for case-independency.
+# Create new dictionary to store lowercase colours for case-independency.
 lowercase_colour_to_proper = {colour.lower(): colour for colour in COLOUR_TO_HEX}
 
 colour = input("Enter a colour: ").lower()
