@@ -6,6 +6,7 @@ Actual:   28 minutes
 
 
 def main():
+    """Determine count of each word in a string of text."""
     text = input("Text: ")
     words = text.split()
     word_to_count = count_words(words)
@@ -17,6 +18,7 @@ def main():
 
 
 def count_words(words):
+    """Count instances of each word and store in dictionary."""
     word_to_count = {}
     for word in words:
         if word in word_to_count:
