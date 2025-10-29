@@ -1,7 +1,7 @@
 """
 Languages Program
 Estimated Time: 30 minutes
-Actual Time:
+Actual Time: 25 minutes
 """
 
 from programming_language import ProgrammingLanguage
