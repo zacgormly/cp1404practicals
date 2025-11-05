@@ -13,11 +13,15 @@ class Guitar:
 
     def __str__(self):
         """Return a formatted string of name, year and cost."""
-        return "{} ({}) : ${:,.2f}".format(self.name, self.year, self.cost)
+        return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
+        # return "{} ({}) : ${:,.2f}".format(self.name, self.year, self.cost)
 
     def __repr__(self):
         """Return a formatted string of name, year and cost."""
         return str(self)
+
+    def __lt__(self, other):
+        return self.year < other.year
 
     def get_age(self):
         """Get age based on current year and the year guitar was created."""
