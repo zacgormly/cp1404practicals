@@ -5,6 +5,8 @@ VINTAGE_THRESHOLD = 50
 
 
 class Guitar:
+    """Create class representation of guitar object."""
+
     def __init__(self, name="", year=0, cost=0):
         """Initialise a guitar."""
         self.name = name
@@ -21,6 +23,7 @@ class Guitar:
         return str(self)
 
     def __lt__(self, other):
+        """Return less than comparison"""
         return self.year < other.year
 
     def get_age(self):
