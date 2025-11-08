@@ -20,7 +20,6 @@ FAREWELL_MESSAGE = "Thank you for using custom-built project management software
 DEFAULT_FILE = "projects.txt"
 
 
-
 def main():
     """Program for Project Management: Load, Save, Display, Filter, Add, Update Projects."""
     print(WELCOME_MESSAGE)
