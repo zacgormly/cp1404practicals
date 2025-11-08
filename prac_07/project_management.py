@@ -28,7 +28,9 @@ def main():
             load_projects(filename)
             print(f"Loaded {len(projects)} projects from {filename}")
         elif choice == "S":
-            pass
+            filename = input("Filename: ")
+            save_projects(projects)
+            print(f"Saved {len(projects)} projects from {filename}")
         elif choice == "D":
             pass
         elif choice == "F":
@@ -42,6 +44,16 @@ def main():
         print(MENU)
         choice = input(">>> ").upper()
     print("Thank you for using custom-built project management software.")
+
+
+def save_projects(filename):
+    with open(filename, "r") as in_file:
+        header = in_file.readline()
+    with open(filename, "w") as out_file:
+        project_lines = [f"{project.name}\t{project.start_date}\t{project.priority}"
+                         f"\t{project.cost}\t{project.completion_percentage}" for project in projects]
+        joined_project_lines = "\n".join(project_lines)  # Avoid trailing newline
+        out_file.write(header + joined_project_lines)
 
 
 def load_projects(filename):
