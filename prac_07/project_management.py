@@ -42,7 +42,19 @@ def main():
             display_projects("Incomplete projects:", incomplete_projects)
             display_projects("Completed projects:", complete_projects)
         elif choice == "F":
-            pass
+            date = input("Show projects that start after date (dd/mm/yy): ")
+            inputted_day, inputted_month, inputted_year = int(date[:2]), int(date[3:5]), int(date[6:])
+            for project in projects:
+                if inputted_year < int(project.start_date[6:]):
+                    print(project)
+                    continue
+                if inputted_year == int(project.start_date[6:]):
+                    if inputted_month < int(project.start_date[3:5]):
+                        print(project)
+                        continue
+                    if inputted_month == int(project.start_date[3:5]):
+                        if inputted_day < int(project.start_date[:2]):
+                            print(project)
         elif choice == "A":
             pass
         elif choice == "U":
