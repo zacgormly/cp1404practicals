@@ -17,6 +17,7 @@ DEFAULT_FILE = "projects.txt"
 
 
 def main():
+    """Program for Project Management: Load, Save, Display, Filter, Add, Update Projects."""
     print("Welcome to Pythonic Project Management")
     projects = load_projects(DEFAULT_FILE)
     print(f"Loaded {len(projects)} projects from {DEFAULT_FILE}")
@@ -51,6 +52,7 @@ def main():
 
 
 def save_projects(projects, filename):
+    """Save projects to file with correct data protocol."""
     with open(filename, "r") as in_file:
         header = in_file.readline()
     with open(filename, "w") as out_file:
@@ -61,10 +63,12 @@ def save_projects(projects, filename):
 
 
 def is_default_save(confirmation):
+    """Check if user confirms to saving data to default data file."""
     return confirmation == "Y"
 
 
 def load_projects(filename):
+    """Load projects from file and store in list."""
     projects = []
     with open(filename, "r") as in_file:
         in_file.readline()  # Skip data header
