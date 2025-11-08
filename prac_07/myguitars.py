@@ -68,4 +68,5 @@ def write_guitars_to_csv(guitars):
             print(f"{guitar.name},{guitar.year},{guitar.cost}", file=out_file)
 
 
-main()
+if __name__ == "__main__":
+    main()
