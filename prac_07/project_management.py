@@ -43,6 +43,10 @@ def main():
             print("Invalid choice")
         print(MENU)
         choice = input(">>> ").upper()
+    confirmation = input("Would you like to save to projects.txt? ").upper()
+    if is_default_save(confirmation):
+        save_projects(projects, DEFAULT_FILE)
+        print(f"Saved {len(projects)} projects from {DEFAULT_FILE}")
     print("Thank you for using custom-built project management software.")
 
 
@@ -54,6 +58,10 @@ def save_projects(projects, filename):
                          f"\t{project.cost}\t{project.completion_percentage}" for project in projects]
         joined_project_lines = "\n".join(project_lines)  # Avoid trailing newline
         out_file.write(header + joined_project_lines)
+
+
+def is_default_save(confirmation):
+    return confirmation == "Y"
 
 
 def load_projects(filename):
