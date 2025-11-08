@@ -37,10 +37,7 @@ def main():
             save_projects(projects, filename)
             print(f"Saved {len(projects)} projects to {filename}")
         elif choice == "D":
-            incomplete_projects = sort_projects(determine_incomplete_projects(projects))
-            complete_projects = sort_projects(determine_complete_projects(projects))
-            display_projects("Incomplete projects:", incomplete_projects)
-            display_projects("Completed projects:", complete_projects)
+            display_projects(projects)
         elif choice == "F":
             filter_projects(projects)
         elif choice == "A":
@@ -56,6 +53,13 @@ def main():
         save_projects(projects, DEFAULT_FILE)
         print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
     print(FAREWELL_MESSAGE)
+
+
+def display_projects(projects):
+    incomplete_projects = sort_projects(determine_incomplete_projects(projects))
+    complete_projects = sort_projects(determine_complete_projects(projects))
+    print_projects("Incomplete projects:", incomplete_projects)
+    print_projects("Completed projects:", complete_projects)
 
 
 def update_project(projects):
@@ -92,7 +96,7 @@ def filter_projects(projects):
             print(project)
 
 
-def display_projects(title, projects):
+def print_projects(title, projects):
     """Display a title and formatted list of projects."""
     print(title)
     for project in projects:
