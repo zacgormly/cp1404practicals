@@ -43,12 +43,7 @@ def main():
             display_projects("Incomplete projects:", incomplete_projects)
             display_projects("Completed projects:", complete_projects)
         elif choice == "F":
-            inputted_date_string = input("Show projects that start after date (dd/mm/yy): ")
-            inputted_date = datetime.strptime(inputted_date_string, "%d/%m/%Y").date()
-            for project in projects:
-                project_date = datetime.strptime(project.start_date, "%d/%m/%Y").date()
-                if project_date > inputted_date:
-                    print(project)
+            filter_projects(projects)
         elif choice == "A":
             pass
         elif choice == "U":
@@ -62,6 +57,16 @@ def main():
         save_projects(projects, DEFAULT_FILE)
         print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
     print(FAREWELL_MESSAGE)
+
+
+def filter_projects(projects):
+    """Filter projects based on inputted date."""
+    inputted_date_string = input("Show projects that start after date (dd/mm/yy): ")
+    inputted_date = datetime.strptime(inputted_date_string, "%d/%m/%Y").date()
+    for project in projects:
+        project_date = datetime.strptime(project.start_date, "%d/%m/%Y").date()
+        if project_date > inputted_date:
+            print(project)
 
 
 def display_projects(title, projects):
