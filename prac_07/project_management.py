@@ -4,6 +4,7 @@ Estimated Time: 70 minutes
 Actual Time: ??
 """
 
+from operator import attrgetter
 from project import Project
 
 MENU = """- (L)oad projects  
@@ -33,7 +34,10 @@ def main():
             save_projects(projects, filename)
             print(f"Saved {len(projects)} projects to {filename}")
         elif choice == "D":
-            pass
+            incomplete_projects = sort_projects(determine_incomplete_projects(projects))
+            complete_projects = sort_projects(determine_complete_projects(projects))
+            display_projects("Incomplete projects:", incomplete_projects)
+            display_projects("Completed projects:", complete_projects)
         elif choice == "F":
             pass
         elif choice == "A":
@@ -49,6 +53,28 @@ def main():
         save_projects(projects, DEFAULT_FILE)
         print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
     print("Thank you for using custom-built project management software.")
+
+
+def display_projects(title, projects):
+    """Display a title and formatted list of projects."""
+    print(title)
+    for project in projects:
+        print(f"  {project}")
+
+
+def determine_incomplete_projects(projects):
+    """Determine which projects are incomplete."""
+    return [project for project in projects if project.completion_percentage != 100]
+
+
+def determine_complete_projects(projects):
+    """Determine which projects are complete."""
+    return [project for project in projects if project.completion_percentage == 100]
+
+
+def sort_projects(projects):
+    """Sort projects based on priority."""
+    return sorted(projects, key=attrgetter("priority"))
 
 
 def save_projects(projects, filename):
