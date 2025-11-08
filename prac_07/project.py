@@ -1,5 +1,7 @@
 """Project Class"""
 
+from datetime import datetime
+
 
 class Project:
     """Create class representation of project object."""
@@ -20,3 +22,6 @@ class Project:
     def __repr__(self):
         """Return a formatted string of name, start date, priority, estimate cost and completion."""
         return str(self)
+
+    def determine_date(self):
+        return datetime.strptime(self.start_date, "%d/%m/%Y").date()
