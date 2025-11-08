@@ -29,7 +29,7 @@ def main():
             print(f"Loaded {len(projects)} projects from {filename}")
         elif choice == "S":
             filename = input("Filename: ")
-            save_projects(projects)
+            save_projects(projects, filename)
             print(f"Saved {len(projects)} projects from {filename}")
         elif choice == "D":
             pass
@@ -46,7 +46,7 @@ def main():
     print("Thank you for using custom-built project management software.")
 
 
-def save_projects(filename):
+def save_projects(projects, filename):
     with open(filename, "r") as in_file:
         header = in_file.readline()
     with open(filename, "w") as out_file:
