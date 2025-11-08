@@ -56,6 +56,7 @@ def main():
 
 
 def display_projects(projects):
+    """Display projects."""
     incomplete_projects = sort_projects(determine_incomplete_projects(projects))
     complete_projects = sort_projects(determine_complete_projects(projects))
     print_projects("Incomplete projects:", incomplete_projects)
@@ -97,7 +98,7 @@ def filter_projects(projects):
 
 
 def print_projects(title, projects):
-    """Display a title and formatted list of projects."""
+    """Print a title and formatted list of projects."""
     print(title)
     for project in projects:
         print(f"  {project}")
