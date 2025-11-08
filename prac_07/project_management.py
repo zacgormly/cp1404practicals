@@ -30,7 +30,7 @@ def main():
         elif choice == "S":
             filename = input("Filename: ")
             save_projects(projects, filename)
-            print(f"Saved {len(projects)} projects from {filename}")
+            print(f"Saved {len(projects)} projects to {filename}")
         elif choice == "D":
             pass
         elif choice == "F":
@@ -46,7 +46,7 @@ def main():
     confirmation = input("Would you like to save to projects.txt? ").upper()
     if is_default_save(confirmation):
         save_projects(projects, DEFAULT_FILE)
-        print(f"Saved {len(projects)} projects from {DEFAULT_FILE}")
+        print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
     print("Thank you for using custom-built project management software.")
 
 
