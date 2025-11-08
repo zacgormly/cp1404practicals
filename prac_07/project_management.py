@@ -14,12 +14,15 @@ MENU = """- (L)oad projects
 - (A)dd new project  
 - (U)pdate project
 - (Q)uit"""
+WELCOME_MESSAGE = "Welcome to Pythonic Project Management"
+FAREWELL_MESSAGE = "Thank you for using custom-built project management software."
 DEFAULT_FILE = "projects.txt"
+
 
 
 def main():
     """Program for Project Management: Load, Save, Display, Filter, Add, Update Projects."""
-    print("Welcome to Pythonic Project Management")
+    print(WELCOME_MESSAGE)
     projects = load_projects(DEFAULT_FILE)
     print(f"Loaded {len(projects)} projects from {DEFAULT_FILE}")
     print(MENU)
@@ -52,7 +55,7 @@ def main():
     if is_default_save(confirmation):
         save_projects(projects, DEFAULT_FILE)
         print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
-    print("Thank you for using custom-built project management software.")
+    print(FAREWELL_MESSAGE)
 
 
 def display_projects(title, projects):
@@ -80,7 +83,7 @@ def sort_projects(projects):
 def save_projects(projects, filename):
     """Save projects to file with correct data protocol."""
     with open(filename, "r") as in_file:
-        header = in_file.readline()
+        header = in_file.readline()  # Store header to add later
     with open(filename, "w") as out_file:
         project_lines = [f"{project.name}\t{project.start_date}\t{project.priority}"
                          f"\t{project.cost}\t{project.completion_percentage}" for project in projects]
