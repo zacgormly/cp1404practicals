@@ -46,7 +46,7 @@ def main():
         elif choice == "A":
             add_project(projects)
         elif choice == "U":
-            pass
+            update_project(projects)
         else:
             print("Invalid choice")
         print(MENU)
@@ -56,6 +56,19 @@ def main():
         save_projects(projects, DEFAULT_FILE)
         print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
     print(FAREWELL_MESSAGE)
+
+
+def update_project(projects):
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+    chosen_project_index = int(input("Project choice: "))
+    print(projects[chosen_project_index])
+    new_completion_percentage = input("New Percentage: ")
+    if new_completion_percentage != "":
+        projects[chosen_project_index].completion_percentage = int(new_completion_percentage)
+    new_priority = input("New Priority: ")
+    if new_priority != "":
+        projects[chosen_project_index].priority = int(new_priority)
 
 
 def add_project(projects):
