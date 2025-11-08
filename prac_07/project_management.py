@@ -72,9 +72,9 @@ def filter_projects(projects):
     """Filter projects based on inputted date."""
     inputted_date_string = input("Show projects that start after date (dd/mm/yy): ")
     inputted_date = datetime.strptime(inputted_date_string, "%d/%m/%Y").date()
+    projects.sort(key=Project.determine_date)
     for project in projects:
-        project_date = datetime.strptime(project.start_date, "%d/%m/%Y").date()
-        if project_date >= inputted_date:
+        if project.determine_date() >= inputted_date:
             print(project)
 
 
