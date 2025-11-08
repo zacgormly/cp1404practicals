@@ -24,4 +24,5 @@ class Project:
         return str(self)
 
     def determine_date(self):
+        """Determine date object from start date string."""
         return datetime.strptime(self.start_date, "%d/%m/%Y").date()
