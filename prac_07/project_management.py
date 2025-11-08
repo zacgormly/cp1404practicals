@@ -30,7 +30,7 @@ def main():
     while choice != "Q":
         if choice == "L":
             filename = input("Filename: ")
-            load_projects(filename)
+            projects = load_projects(filename)
             print(f"Loaded {len(projects)} projects from {filename}")
         elif choice == "S":
             filename = input("Filename: ")
