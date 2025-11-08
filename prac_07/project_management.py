@@ -59,6 +59,7 @@ def main():
 
 
 def update_project(projects):
+    """Update project completion percentage and/or priority."""
     for i, project in enumerate(projects):
         print(f"{i} {project}")
     chosen_project_index = int(input("Project choice: "))
@@ -72,6 +73,7 @@ def update_project(projects):
 
 
 def add_project(projects):
+    """Add new project."""
     print("Let's add a new project")
     name = input("Name: ")
     start_date = input("Start date (dd/mm/yy): ")
