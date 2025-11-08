@@ -5,6 +5,7 @@ Actual Time: ??
 """
 
 from operator import attrgetter
+from datetime import datetime
 from project import Project
 
 MENU = """- (L)oad projects  
@@ -42,19 +43,12 @@ def main():
             display_projects("Incomplete projects:", incomplete_projects)
             display_projects("Completed projects:", complete_projects)
         elif choice == "F":
-            date = input("Show projects that start after date (dd/mm/yy): ")
-            inputted_day, inputted_month, inputted_year = int(date[:2]), int(date[3:5]), int(date[6:])
+            inputted_date_string = input("Show projects that start after date (dd/mm/yy): ")
+            inputted_date = datetime.strptime(inputted_date_string, "%d/%m/%Y").date()
             for project in projects:
-                if inputted_year < int(project.start_date[6:]):
+                project_date = datetime.strptime(project.start_date, "%d/%m/%Y").date()
+                if project_date > inputted_date:
                     print(project)
-                    continue
-                if inputted_year == int(project.start_date[6:]):
-                    if inputted_month < int(project.start_date[3:5]):
-                        print(project)
-                        continue
-                    if inputted_month == int(project.start_date[3:5]):
-                        if inputted_day < int(project.start_date[:2]):
-                            print(project)
         elif choice == "A":
             pass
         elif choice == "U":
