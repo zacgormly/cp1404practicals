@@ -45,7 +45,7 @@ def main():
         elif choice == "F":
             filter_projects(projects)
         elif choice == "A":
-            pass
+            add_project(projects)
         elif choice == "U":
             pass
         else:
@@ -57,6 +57,16 @@ def main():
         save_projects(projects, DEFAULT_FILE)
         print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
     print(FAREWELL_MESSAGE)
+
+
+def add_project(projects):
+    print("Let's add a new project")
+    name = input("Name: ")
+    start_date = input("Start date (dd/mm/yy): ")
+    priority = int(input("Priority: "))
+    cost = float(input("Cost estimate: $"))
+    completion_percentage = int(input("Percent complete: "))
+    projects.append(Project(name, start_date, priority, cost, completion_percentage))
 
 
 def filter_projects(projects):
