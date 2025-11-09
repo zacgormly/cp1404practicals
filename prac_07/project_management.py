@@ -1,7 +1,7 @@
 """
 Project Management Program
 Estimated Time: 70 minutes
-Actual Time: ??
+Actual Time: ~10 hours, yeah I underestimated how long this would take :(
 """
 
 from operator import attrgetter
