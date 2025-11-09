@@ -30,12 +30,14 @@ def main():
     while choice != "Q":
         if choice == "L":
             filename = input("Filename: ")
-            projects = load_projects(filename)
-            print(f"Loaded {len(projects)} projects from {filename}")
+            projects, is_successful = load_projects(filename)
+            if is_successful:
+                print(f"Loaded {len(projects)} projects from {filename}")
         elif choice == "S":
             filename = input("Filename: ")
-            save_projects(projects, filename)
-            print(f"Saved {len(projects)} projects to {filename}")
+            is_successful = save_projects(projects, filename)
+            if is_successful:
+                print(f"Saved {len(projects)} projects to {filename}")
         elif choice == "D":
             display_projects(projects)
         elif choice == "F":
@@ -126,13 +128,18 @@ def sort_projects(projects):
 
 def save_projects(projects, filename):
     """Save projects to file with correct data protocol."""
-    with open(filename, "r") as in_file:
-        header = in_file.readline()  # Store header to add later
-    with open(filename, "w") as out_file:
-        project_lines = [f"{project.name}\t{project.start_date}\t{project.priority}"
-                         f"\t{project.cost}\t{project.completion_percentage}" for project in projects]
-        joined_project_lines = "\n".join(project_lines)  # Avoid trailing newline
-        out_file.write(header + joined_project_lines)
+    try:
+        with open(filename, "r") as in_file:
+            header = in_file.readline()  # Store header to add later
+        with open(filename, "w") as out_file:
+            project_lines = [f"{project.name}\t{project.start_date}\t{project.priority}"
+                             f"\t{project.cost}\t{project.completion_percentage}" for project in projects]
+            joined_project_lines = "\n".join(project_lines)  # Avoid trailing newline
+            out_file.write(header + joined_project_lines)
+        return True  # Indicate successful save
+    except FileNotFoundError:
+        print("File not found.")
+    return False  # Indicate failed save
 
 
 def is_default_save(confirmation):
@@ -143,13 +150,17 @@ def is_default_save(confirmation):
 def load_projects(filename):
     """Load projects from file and store in list."""
     projects = []
-    with open(filename, "r") as in_file:
-        in_file.readline()  # Skip data header
-        for line in in_file:
-            parts = line.strip().split("\t")
-            project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4]))
-            projects.append(project)
-    return projects
+    try:
+        with open(filename, "r") as in_file:
+            in_file.readline()  # Skip data header
+            for line in in_file:
+                parts = line.strip().split("\t")
+                project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4]))
+                projects.append(project)
+        return projects, True  # Indicate successful load
+    except FileNotFoundError:
+        print("File not found.")
+    return projects, False  # Indicate failed load
 
 
 if __name__ == "__main__":
