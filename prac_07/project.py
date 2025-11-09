@@ -25,7 +25,9 @@ class Project:
 
     def determine_date(self):
         """Determine date object from start date string."""
-        return datetime.strptime(self.start_date, "%d/%m/%Y").date()
+        if isinstance(self.start_date, str):
+            return datetime.strptime(self.start_date, "%d/%m/%Y").date()
+        return self.start_date
 
     def is_complete(self):
         """Check if completion percentage for object is 100%."""
