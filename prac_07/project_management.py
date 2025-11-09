@@ -23,7 +23,7 @@ DEFAULT_FILE = "projects.txt"
 def main():
     """Program for Project Management: Load, Save, Display, Filter, Add, Update Projects."""
     print(WELCOME_MESSAGE)
-    projects = load_projects(DEFAULT_FILE)
+    projects, is_successful = load_projects(DEFAULT_FILE)
     print(f"Loaded {len(projects)} projects from {DEFAULT_FILE}")
     print(MENU)
     choice = input(">>> ").upper()
@@ -52,8 +52,9 @@ def main():
         choice = input(">>> ").upper()
     confirmation = input("Would you like to save to projects.txt? ").upper()
     if is_default_save(confirmation):
-        save_projects(projects, DEFAULT_FILE)
-        print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
+        is_successful = save_projects(projects, DEFAULT_FILE)
+        if is_successful:
+            print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
     print(FAREWELL_MESSAGE)
 
 
