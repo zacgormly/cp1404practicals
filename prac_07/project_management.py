@@ -159,12 +159,12 @@ def print_projects(title, projects):
 
 def determine_incomplete_projects(projects):
     """Determine which projects are incomplete."""
-    return [project for project in projects if project.completion_percentage != 100]
+    return [project for project in projects if not project.is_complete()]
 
 
 def determine_complete_projects(projects):
     """Determine which projects are complete."""
-    return [project for project in projects if project.completion_percentage == 100]
+    return [project for project in projects if project.is_complete()]
 
 
 def sort_projects(projects):

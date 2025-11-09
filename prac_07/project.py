@@ -26,3 +26,6 @@ class Project:
     def determine_date(self):
         """Determine date object from start date string."""
         return datetime.strptime(self.start_date, "%d/%m/%Y").date()
+
+    def is_complete(self):
+        return self.completion_percentage == 100
