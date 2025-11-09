@@ -89,7 +89,7 @@ def add_project(projects):
     """Add new project."""
     print("Let's add a new project")
     name = get_valid_string("Name: ")
-    start_date = get_valid_date()
+    start_date = get_valid_date("Start date: ")
     priority = get_valid_integer("Priority: ")
     cost = get_valid_float("Cost estimate: $")
     completion_percentage = get_valid_integer("Percent complete: ")
@@ -105,11 +105,11 @@ def get_valid_string(caption):
     return string
 
 
-def get_valid_date():
+def get_valid_date(caption):
     """Get valid date format."""
     is_valid_input = False
     while not is_valid_input:
-        start_date_string = get_valid_string("Start date: ")
+        start_date_string = input(caption)
         try:
             start_date = datetime.strptime(start_date_string, "%d/%m/%Y").date()
             is_valid_input = True
@@ -144,12 +144,7 @@ def get_valid_float(caption):
 
 def filter_projects(projects):
     """Filter projects based on inputted date."""
-    inputted_date_string = input("Show projects that start after date (dd/mm/yy): ")
-    try:
-        inputted_date = datetime.strptime(inputted_date_string, "%d/%m/%Y").date()
-    except ValueError:
-        print("Invalid date format.")
-        return
+    inputted_date = get_valid_date("Show projects that start after date (dd/mm/yy): ")
     for project in sorted(projects, key=Project.determine_date):
         if project.determine_date() >= inputted_date:
             print(project)
