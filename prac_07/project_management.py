@@ -88,12 +88,58 @@ def print_projects_as_numbered_list(projects):
 def add_project(projects):
     """Add new project."""
     print("Let's add a new project")
-    name = input("Name: ")
-    start_date = input("Start date (dd/mm/yy): ")
-    priority = int(input("Priority: "))
-    cost = float(input("Cost estimate: $"))
-    completion_percentage = int(input("Percent complete: "))
+    name = get_valid_string("Name: ")
+    start_date = get_valid_date()
+    priority = get_valid_integer("Priority: ")
+    cost = get_valid_float("Cost estimate: $")
+    completion_percentage = get_valid_integer("Percent complete: ")
     projects.append(Project(name, start_date, priority, cost, completion_percentage))
+
+
+def get_valid_string(caption):
+    """Get valid non-empty string."""
+    string = input(caption)
+    while string == "":
+        print("Input cannot be empty.")
+        string = input(caption)
+    return string
+
+
+def get_valid_date():
+    """Get valid date format."""
+    is_valid_input = False
+    while not is_valid_input:
+        start_date_string = get_valid_string("Start date: ")
+        try:
+            start_date = datetime.strptime(start_date_string, "%d/%m/%Y").date()
+            is_valid_input = True
+        except ValueError:
+            print("Invalid date format.")
+    return start_date
+
+
+def get_valid_integer(caption):
+    """Get integer with exception-handling."""
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            number = int(input(caption))
+            is_valid_input = True
+        except ValueError:
+            print("Input must be an integer.")
+    return number
+
+
+def get_valid_float(caption):
+    """Get float with exception-handling."""
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            number = float(input(caption))
+            is_valid_input = True
+        except ValueError:
+            print("Input must be a float.")
+    return number
 
 
 def filter_projects(projects):
