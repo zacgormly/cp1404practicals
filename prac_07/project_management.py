@@ -175,13 +175,12 @@ def sort_projects(projects):
 def save_projects(projects, filename):
     """Save projects to file with correct data protocol."""
     try:
-        with open(filename, "r") as in_file:
-            header = in_file.readline()  # Store header to add later
         with open(filename, "w") as out_file:
+            out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
             project_lines = [f"{project.name}\t{project.start_date}\t{project.priority}"
                              f"\t{project.cost}\t{project.completion_percentage}" for project in projects]
             joined_project_lines = "\n".join(project_lines)  # Avoid trailing newline
-            out_file.write(header + joined_project_lines)
+            out_file.write(joined_project_lines)
         return True  # Indicate successful save
     except FileNotFoundError:
         print("File not found.")
