@@ -8,7 +8,7 @@ from operator import attrgetter
 from datetime import datetime
 from project import Project
 
-MENU = """- (L)oad projects  
+MENU = """- (L)oad projects
 - (S)ave projects  
 - (D)isplay projects  
 - (F)ilter projects by date
@@ -55,6 +55,7 @@ def main():
 
 
 def query_default_save(projects):
+    """Save to default file if confirmed."""
     confirmation = input("Would you like to save to projects.txt? ").upper()
     if is_default_save(confirmation):
         is_successful = save_projects(projects, DEFAULT_FILE)
@@ -188,10 +189,11 @@ def sort_projects(projects):
 def save_projects(projects, filename):
     """Save projects to file with correct data protocol."""
     try:
-        with open(filename, "w") as out_file:
+        with open(filename, "w", encoding="utf-8") as out_file:
             out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
             project_lines = [f"{project.name}\t{project.start_date}\t{project.priority}"
-                             f"\t{project.cost}\t{project.completion_percentage}" for project in projects]
+                             f"\t{project.cost}\t{project.completion_percentage}"
+                             for project in projects]
             joined_project_lines = "\n".join(project_lines)  # Avoid trailing newline
             out_file.write(joined_project_lines)
         return True  # Indicate successful save
@@ -209,7 +211,7 @@ def load_projects(filename):
     """Load projects from file and store in list."""
     projects = []
     try:
-        with open(filename, "r") as in_file:
+        with open(filename, "r", encoding="utf-8") as in_file:
             in_file.readline()  # Skip data header
             for line in in_file:
                 parts = line.strip().split("\t")
