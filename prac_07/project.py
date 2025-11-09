@@ -28,4 +28,5 @@ class Project:
         return datetime.strptime(self.start_date, "%d/%m/%Y").date()
 
     def is_complete(self):
+        """Check if completion percentage for object is 100%."""
         return self.completion_percentage == 100
