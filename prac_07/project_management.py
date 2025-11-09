@@ -65,8 +65,7 @@ def display_projects(projects):
 
 def update_project(projects):
     """Update project completion percentage and/or priority."""
-    for i, project in enumerate(projects):
-        print(f"{i} {project}")
+    print_projects_as_numbered_list(projects)
     chosen_project_index = int(input("Project choice: "))
     print(projects[chosen_project_index])
     new_completion_percentage = input("New Percentage: ")
@@ -75,6 +74,12 @@ def update_project(projects):
     new_priority = input("New Priority: ")
     if new_priority != "":
         projects[chosen_project_index].priority = int(new_priority)
+
+
+def print_projects_as_numbered_list(projects):
+    """Print projects as numbered list."""
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
 
 
 def add_project(projects):
