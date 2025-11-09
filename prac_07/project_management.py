@@ -73,7 +73,7 @@ def display_projects(projects):
 def update_project(projects):
     """Update project completion percentage and/or priority."""
     print_projects_as_numbered_list(projects)
-    chosen_project_index = int(input("Project choice: "))
+    chosen_project_index = get_valid_project_index(projects)
     print(projects[chosen_project_index])
     new_completion_percentage = input("New Percentage: ")
     if new_completion_percentage != "":
@@ -81,6 +81,14 @@ def update_project(projects):
     new_priority = input("New Priority: ")
     if new_priority != "":
         projects[chosen_project_index].priority = int(new_priority)
+
+
+def get_valid_project_index(projects):
+    chosen_project_index = get_valid_integer("Project choice: ")
+    while chosen_project_index < 0 or chosen_project_index > len(projects) - 1:
+        print("Invalid project number.")
+        chosen_project_index = get_valid_integer("Project choice: ")
+    return chosen_project_index
 
 
 def print_projects_as_numbered_list(projects):
