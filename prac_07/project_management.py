@@ -84,6 +84,7 @@ def update_project(projects):
 
 
 def get_valid_project_index(projects):
+    """Get valid positive project index"""
     chosen_project_index = get_valid_integer("Project choice: ")
     while chosen_project_index < 0 or chosen_project_index > len(projects) - 1:
         print("Invalid project number.")
