@@ -102,7 +102,7 @@ def add_project(projects):
     """Add new project."""
     print("Let's add a new project")
     name = get_valid_string("Name: ")
-    start_date = get_valid_date("Start date: ")
+    start_date = get_valid_date("Start date (dd/mm/yy): ")
     priority = get_valid_integer("Priority: ")
     cost = get_valid_float("Cost estimate: $")
     completion_percentage = get_valid_integer("Percent complete: ")
