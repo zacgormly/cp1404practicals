@@ -50,12 +50,16 @@ def main():
             print("Invalid choice")
         print(MENU)
         choice = input(">>> ").upper()
+    query_default_save(projects)
+    print(FAREWELL_MESSAGE)
+
+
+def query_default_save(projects):
     confirmation = input("Would you like to save to projects.txt? ").upper()
     if is_default_save(confirmation):
         is_successful = save_projects(projects, DEFAULT_FILE)
         if is_successful:
             print(f"Saved {len(projects)} projects to {DEFAULT_FILE}")
-    print(FAREWELL_MESSAGE)
 
 
 def display_projects(projects):
