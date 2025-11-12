@@ -5,6 +5,7 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.properties import StringProperty
 
+CONVERSION_RATE = 1.60934
 
 class ConvertDistanceApp(App):
     """ConvertDistanceApp is a Kivy App for converting miles to kilometres."""
@@ -20,12 +21,18 @@ class ConvertDistanceApp(App):
 
     def handle_calculation(self, miles):
         """Handle calculation of miles to km."""
-        result = float(miles) * 1.60934
-        self.output = str(result)
+        try:
+            result = float(miles) * CONVERSION_RATE
+            self.output = str(result)
+        except ValueError:
+            self.output = str(0.0)
 
     def handle_increment(self, miles, increment):
         """Handle increment with up and down buttons."""
-        new_miles = float(miles) + increment
+        try:
+            new_miles = float(miles) + increment
+        except ValueError:
+            new_miles = 0.0 + increment
         self.input = str(new_miles)
 
 
